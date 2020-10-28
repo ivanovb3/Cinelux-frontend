@@ -1,0 +1,33 @@
+.header{
+    font-family: Stencil Std, fantasy;
+    font-stretch: ultra-expanded;
+    font-weight: 900;
+    font-size: 3rem !important;
+    margin-left: 7%;
+    color: #f7941e !important;
+    padding: 0% !important; 
+}
+.linksWrapper{
+    font-family: Stencil Std, fantasy;
+    font-stretch: ultra-expanded;
+    font-weight: 400;
+    font-size: 1.65rem !important;
+    margin-left: 20%;    
+}
+.links{
+    color: #fff !important;
+    padding: 10%;
+}
+.navWrapper{
+    background-color: #0b0c0e!important;
+}
+nav .nav-link {
+    padding-left: 2rem !important;
+}
+.links:hover{
+    color: #f7941e !important;
+}
+.logout{
+    right: 3%;
+    position: absolute;
+}

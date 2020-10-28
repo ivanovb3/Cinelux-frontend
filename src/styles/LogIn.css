@@ -1,0 +1,24 @@
+.wrapper{
+   /*  width: 40%;
+    height: 60%;
+    background-color: #f7941e;    
+    right: 50%;
+    left: 50%;
+    position: absolute; */
+    margin-top: 7%;
+    display: flex;
+    justify-content: center;
+    
+  
+}
+.wrapperRegister{
+    margin-top: 3%;
+    display: flex;
+    justify-content: center; 
+}
+.formContainer{
+    width: 40%;
+    border-style: ridge;
+    padding: 2%;
+    border-radius: 25px;
+}
