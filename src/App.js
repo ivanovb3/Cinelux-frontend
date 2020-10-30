@@ -8,20 +8,15 @@ import LogInPage from './pages/logIn';
 
 class App extends Component {
   render() {
-    /* return (
-      { <div className="App">
-        <NavBar />
-
-      </div> *      
-    ); */
-    return <Router>
+    return( 
+    <Router>
       <Switch>
         <Route exact path="/login" component={LogInPage} />
         <Route exact path="/register" component={LogInPage} />
         <Route path="/" component={MainPage} />
       </Switch>
     </Router>
-  }
+    )}
 }
 
 export default App;

@@ -4,8 +4,9 @@ import Nav from 'react-bootstrap/Nav'
 import '../styles/NavBar.css';
 import '../services/UserService'
 import UserService from '../services/UserService';
+import { withRouter } from 'react-router-dom'
 
-export default class NavBar extends Component {
+class NavBar extends Component {
     constructor() {
         super()
         this.state = {
@@ -16,17 +17,11 @@ export default class NavBar extends Component {
     }
 
     componentDidMount() {
-       /*  fetch("http://localhost:8080/users")
-            .then(response => response.json())
-            .then(response => {
-                const { newUser } = response.data
-                console.log("kur")
-                this.setState({ users: newUser })
-            }) */
-            UserService.getUser()
+        UserService.getUserById(1)
             .then((response) => {
-                this.setState({user : response.data})
+                this.setState({ user: response.data })
             })
+        //this.setState({ user: this.props.location.state.user })
     }
     handleLogInOut() {
         this.setState(prevState => {
@@ -36,7 +31,7 @@ export default class NavBar extends Component {
         });
     }
     render() {
-        let logInOutText = this.state.isLoggedIn ? 'Log Out' : 'Log In' 
+        let logInOutText = this.state.isLoggedIn ? 'Log Out' : 'Log In'
         let profileLink = this.state.isLoggedIn ? <Nav.Link href="#link" className="links">Profile</Nav.Link> : null
         return (
             <div>
@@ -51,9 +46,10 @@ export default class NavBar extends Component {
                             <Nav.Link href="login" className="links logout" onClick={this.handleLogInOut}>{logInOutText}</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
-                </Navbar>   
-        {/* <h1>{this.state.user.name}</h1> */}             
+                </Navbar>
             </div>
         )
     }
 }
+
+export default withRouter(NavBar)

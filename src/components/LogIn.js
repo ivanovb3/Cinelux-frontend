@@ -2,16 +2,66 @@ import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import '../styles/LogIn.css'
-import {Link} from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import UserService from '../services/UserService';
 
-export default class LogIn extends Component {
+class LogIn extends Component {
+
+
+    constructor() {
+        super()
+        this.state = {
+            email: "",
+            password: ""
+        }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleChange(event) {
+        const { name, value } = event.target
+        this.setState({
+            [name]: value
+        })
+    }
+
+    handleSubmit(event) {
+        event.preventDefault()
+        const { history } = this.props;
+        let user = {
+            email: this.state.email,
+            password: this.state.password
+        }
+        UserService.logInUser(this.state.email, this.state.password)
+
+            .then(res => {
+                if (res.status >= 200 && res.status < 300) {
+                    if (!Object.keys(res.data).length) {
+                        console.log("wrong info");
+                    }
+                    else {
+                         this.props.history.push({
+                            pathname: '/',
+                            state: { user: res.data }
+                        }) 
+                    }
+                }
+            })
+    }
+
+
     render() {
         return (
             <div className="wrapper">
-                <Form className="formContainer">
+                <Form className="formContainer" onSubmit={this.handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control
+                            name="email"
+                            value={this.state.email}
+                            type="email"
+                            placeholder="Enter email"
+                            onChange={this.handleChange} />
                         <Form.Text className="text-muted">
                             We'll never share your email with anyone else.
                         </Form.Text>
@@ -19,7 +69,12 @@ export default class LogIn extends Component {
 
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control
+                            name="password"
+                            value={this.state.password}
+                            type="password"
+                            placeholder="Password"
+                            onChange={this.handleChange} />
                     </Form.Group>
                     <Form.Group controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Remember me" />
@@ -34,3 +89,5 @@ export default class LogIn extends Component {
         )
     }
 }
+
+export default withRouter(LogIn)
