@@ -1,4 +1,4 @@
-.wrapper{
+.wrapperLogIn{
    /*  width: 40%;
     height: 60%;
     background-color: #f7941e;    
@@ -8,13 +8,15 @@
     margin-top: 7%;
     display: flex;
     justify-content: center;
-    
+    margin-bottom: 2%;
+    color: white;
   
 }
 .wrapperRegister{
     margin-top: 3%;
     display: flex;
     justify-content: center; 
+    color:white;
 }
 .formContainer{
     width: 40%;

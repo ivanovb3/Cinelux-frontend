@@ -52,7 +52,7 @@ class LogIn extends Component {
 
     render() {
         return (
-            <div className="wrapper">
+            <div className="wrapperLogIn">
                 <Form className="formContainer" onSubmit={this.handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>

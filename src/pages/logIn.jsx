@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import LogIn from '../components/LogIn'
 import NavBar from '../components/NavBar'
 import Register from '../components/Register'
+import Footer from '../components/Footer'
 
 export default class LogInPage extends Component {
     constructor() {
@@ -14,7 +15,8 @@ export default class LogInPage extends Component {
         return (
             <div>
                 <NavBar />
-                {this.props.location.pathname == "/login" ? <LogIn /> : <Register />}                
+                {this.props.location.pathname == "/login" ? <LogIn /> : <Register />}  
+                <Footer />               
             </div>
         )
     }

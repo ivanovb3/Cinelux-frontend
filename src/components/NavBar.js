@@ -43,7 +43,7 @@ class NavBar extends Component {
                             <Nav.Link href="#link" className="links">Now in cinema</Nav.Link>
                             <Nav.Link href="#link" className="links">Schedule</Nav.Link>
                             {profileLink}
-                            <Nav.Link href="login" className="links logout" onClick={this.handleLogInOut}>{logInOutText}</Nav.Link>
+                            <Nav.Link href="../login" className="links logout" onClick={this.handleLogInOut}>{logInOutText}</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
