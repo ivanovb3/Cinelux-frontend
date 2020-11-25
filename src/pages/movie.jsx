@@ -10,7 +10,7 @@ class MoviePage extends Component {
             <div>
                 <NavBar />
                 <Movie />
-                {/* <Footer />  */}
+               {/*  <Footer /> */}
             </div>
 
         )
