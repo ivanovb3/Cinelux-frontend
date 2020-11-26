@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-/* import '../styles/Footer.css' */
+/*  import '../styles/Footer.css'  */
 
 export default class Footer extends Component {
     render() {
         return (
-            <div>
+            <div className="footerContainer">
 
                 <footer class="page-footer font-small elegant-color-dark darken-3">
 

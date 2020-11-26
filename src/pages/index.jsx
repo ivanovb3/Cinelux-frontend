@@ -7,6 +7,7 @@ import NewMovie from '../components/NewMovie'
 import NowInCinema from '../components/NowInCinema'
 import Footer from '../components/Footer'
 import Carousel from '../components/Carousel'
+import Helmet from '../components/Helmet'
 
 
 
@@ -14,16 +15,9 @@ class MainPage extends Component {
      constructor(props) {
         super(props)
         this.state = {
-            isLoggedIn: false,
-            user: [],
             isAdmin: false
         }
     }
-    /* componentDidMount(){
-        if(this.props.location.state.success){
-            isLoggedIn = true
-        }
-    } */
     render() {
         return (
             <div>
@@ -31,7 +25,8 @@ class MainPage extends Component {
                 <Carousel />
                 <NewMovie isAdmin = {this.state.isAdmin}/>   
                 <NowInCinema /> 
-                <Footer />                           
+                <Footer />  
+                <Helmet />                         
             </div>
 
         )

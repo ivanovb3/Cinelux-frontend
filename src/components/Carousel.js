@@ -7,7 +7,7 @@ export default class CarouselPictures extends Component {
         return (
             <div>
                 <Carousel>
-                    <Carousel.Item interval={7000}>
+                    <Carousel.Item interval={3000}>
                         <img
                             className="d-block w-100 carouselImage"
                             src={process.env.PUBLIC_URL + '/pictures/cinelux.jpg'}
@@ -18,7 +18,7 @@ export default class CarouselPictures extends Component {
                             <p>st Academic Stefan Mladenov #3 Vidin, Bulgaria</p>
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item interval={7000}>
+                    <Carousel.Item interval={5000}>
                         <img
                             className="d-block w-100 carouselImage"
                             src={process.env.PUBLIC_URL + '/pictures/corona-pic.jpg'}
@@ -28,7 +28,7 @@ export default class CarouselPictures extends Component {
                             <h3>Stay safe during the pandemic, always wear masks to protect others and yourself</h3>                            
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item interval={7000}>
+                    <Carousel.Item interval={5000}>
                         <img
                             className="d-block w-100 carouselImage"
                             src={process.env.PUBLIC_URL + '/pictures/vidin.jpg'}

@@ -31,3 +31,6 @@ nav .nav-link {
     right: 3%;
     position: absolute;
 }
+.footerContainer{
+    clear: both ;
+}

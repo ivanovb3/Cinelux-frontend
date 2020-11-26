@@ -15,16 +15,18 @@
     justify-content: center;
     float: left;
     margin-top: 5%;
+    margin-bottom: 5%;
 }
 .rightContainer{
     float: right;
     margin-top: 5%;
     margin-right: 10%;
+    margin-bottom: 5%;
 }
 .date{
     font-family: Stencil Std, fantasy;
     font-weight: 200;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: #f7941e;
     background-color: transparent;
     border-style: none ;
@@ -41,4 +43,24 @@ ul {
 }
 .projections{
     color:white;
+}
+.active{
+    font-family: Stencil Std, fantasy;
+    font-weight: 200;
+    font-size: 1.5rem;
+    color: #f7941e;
+    background-color: transparent;
+    border-style: none ;
+    width: 100%;
+    height: 100%; 
+}
+.inactive{
+    font-family: Stencil Std, fantasy;
+    font-weight: 200;
+    font-size: 1.5rem;
+    color: white;
+    background-color: transparent;
+    border-style: none ;
+    width: 100%;
+    height: 100%; 
 }

@@ -32,12 +32,12 @@ class NavBar extends Component {
         let logInOutLink = this.state.isLoggedIn ? <Nav.Link href="" className="links logout" onClick={this.handleLogOut}>Log out</Nav.Link>   : <Nav.Link href="../login" className="links logout">Log in</Nav.Link>
         return (
             <div>
-                <Navbar bg="black" expand="lg" className="navWrapper">
+                <Navbar bg="black" expand="lg" className="navWrapper" /* fixed="top" */>
                     <Navbar.Brand href="/" className="header">CINELUX</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-right" className="linksWrapper">
-                            <Nav.Link href="#link" className="links">Now in cinema</Nav.Link>
+                            <Nav.Link href="../" className="links">Now in cinema</Nav.Link>
                             <Nav.Link href="#link" className="links">Schedule</Nav.Link>
                             {profileLink}
                             {logInOutLink}
