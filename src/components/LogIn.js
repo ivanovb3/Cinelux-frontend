@@ -1,18 +1,23 @@
 import React, { Component } from 'react'
-import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import '../styles/LogIn.css'
 import { Link, withRouter } from 'react-router-dom'
-import UserService from '../services/UserService';
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+
+import AuthService from "../services/auth.service";
 
 class LogIn extends Component {
 
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            email: "",
-            password: ""
+            username: "",
+            password: "",
+            message: "",
+            loading: false
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,69 +30,113 @@ class LogIn extends Component {
         })
     }
 
-    handleSubmit(event) {
-        event.preventDefault()
-        const { history } = this.props;
-        let user = {
-            email: this.state.email,
-            password: this.state.password
-        }
-        UserService.logInUser(this.state.email, this.state.password)
+    handleSubmit(e) {
+        e.preventDefault();
 
-            .then(res => {
-                if (res.status >= 200 && res.status < 300) {
-                    if (!Object.keys(res.data).length) {
-                        console.log("wrong info");
-                    }
-                    else {
-                         this.props.history.push({
-                            pathname: '/',
-                            state: { user: res.data }
-                        }) 
-                    }
+        this.setState({
+            message: "",
+            loading: true
+        });
+
+        this.form.validateAll();
+
+        if (this.checkBtn.context._errors.length === 0) {
+            AuthService.login(this.state.username, this.state.password).then(
+                () => {
+                    this.props.history.push({
+                        pathname: '/',
+                        state: { isLoggedIn: true, success: true }
+                    })
+                    window.location.reload();
+                },
+                error => {
+                    const resMessage =
+                        (error.response &&
+                            error.response.data &&
+                            error.response.data.message) ||
+                        error.message ||
+                        error.toString();
+
+                    this.setState({
+                        loading: false,
+                        message: resMessage
+                    });
                 }
-            })
+            );
+        } else {
+            this.setState({
+                loading: false
+            });
+        }
     }
 
 
     render() {
         return (
             <div className="wrapperLogIn">
-                <Form className="formContainer" onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
-                            name="email"
-                            value={this.state.email}
-                            type="email"
-                            placeholder="Enter email"
-                            onChange={this.handleChange} />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
+                <Form className="formContainer" onSubmit={this.handleSubmit} ref={c => { this.form = c; }}>
+                    <div>
+                        <div className="form-group">
+                            <label htmlFor="username">Username</label>
+                            <Input
+                                type="text"
+                                className="form-control"
+                                name="username"
+                                value={this.state.username}
+                                onChange={this.handleChange}
+                                validations={[required]}
+                            />
+                        </div>
+                        <div className="form-group">
+                        <label htmlFor="password">Password</label>
+                        <Input
+                            type="password"
+                            className="form-control"
                             name="password"
                             value={this.state.password}
-                            type="password"
-                            placeholder="Password"
-                            onChange={this.handleChange} />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Remember me" />
-                    </Form.Group>
+                            onChange={this.handleChange}
+                            validations={[required]}
+                        />
+                    </div>
+                    <div className="form-group">
                     <Button variant="primary" type="submit">
                         Log In
                     </Button>
+                    </div>
                     <br></br>
                     <Link to="register" className="registerLink">Now account? Regiser Now!</Link>
+                    <br></br>
+                    {this.state.message && (
+                        <div className="form-group">
+                            <div className="alert alert-danger" role="alert">
+                                {this.state.message}
+                            </div>
+                        </div>
+                    )}
+                    <CheckButton
+                        style={{ display: "none" }}
+                        ref={c => {
+                            this.checkBtn = c;
+                        }}
+                    />
+                    </div>
                 </Form>
-            </div>
+            </div >
         )
     }
 }
 
+
 export default withRouter(LogIn)
+
+
+const required = value => {
+    if (!value) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                This field is required!
+            </div>
+        );
+    }
+};
+

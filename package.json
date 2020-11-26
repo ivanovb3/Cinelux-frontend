@@ -15,7 +15,9 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-window": "^1.8.6"
+    "react-validation": "^3.0.7",
+    "react-window": "^1.8.6",
+    "validator": "^13.1.17"
   },
   "scripts": {
     "start": "react-scripts start",

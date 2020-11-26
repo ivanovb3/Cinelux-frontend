@@ -2,9 +2,10 @@
     width: 25%;
     padding: 1%;   
     float:left;
+    /* margin-bottom: 2%; */
     /* height: 50%; */
 }
-.movieWrapper :hover{
+.movieWrapperContent :hover{
     color: #f7941e !important;
     /* backdrop-filter: blur(1px); */
 }
@@ -29,9 +30,13 @@
     font-family: Stencil Std, fantasy;
     font-weight: 300;
     font-size: 1.3rem !important;
-    color: #fff;
+    color: #fff; 
 
 }
 body{
     background-color: #191a1f !important;
+}
+
+.carouselImage{
+    height: 500px;
 }

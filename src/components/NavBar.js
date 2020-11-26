@@ -6,33 +6,30 @@ import '../services/UserService'
 import UserService from '../services/UserService';
 import { withRouter } from 'react-router-dom'
 
+import AuthService from "../services/auth.service";
+
 class NavBar extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             isLoggedIn: false,
-            user: []
         }
-        this.handleLogInOut = this.handleLogInOut.bind(this);
+        this.handleLogOut = this.handleLogOut.bind(this);
     }
 
     componentDidMount() {
-        UserService.getUserById(1)
-            .then((response) => {
-                this.setState({ user: response.data })
-            })
-        //this.setState({ user: this.props.location.state.user })
+        console.log(AuthService.getCurrentUser());
+        if(AuthService.getCurrentUser() != null){
+            this.setState({isLoggedIn: true})
+        }
     }
-    handleLogInOut() {
-        this.setState(prevState => {
-            return {
-                isLoggedIn: !prevState.isLoggedIn
-            }
-        });
-    }
+     handleLogOut() {
+        AuthService.logout()
+        window.location.reload();
+    } 
     render() {
-        let logInOutText = this.state.isLoggedIn ? 'Log Out' : 'Log In'
         let profileLink = this.state.isLoggedIn ? <Nav.Link href="#link" className="links">Profile</Nav.Link> : null
+        let logInOutLink = this.state.isLoggedIn ? <Nav.Link href="" className="links logout" onClick={this.handleLogOut}>Log out</Nav.Link>   : <Nav.Link href="../login" className="links logout">Log in</Nav.Link>
         return (
             <div>
                 <Navbar bg="black" expand="lg" className="navWrapper">
@@ -43,7 +40,7 @@ class NavBar extends Component {
                             <Nav.Link href="#link" className="links">Now in cinema</Nav.Link>
                             <Nav.Link href="#link" className="links">Schedule</Nav.Link>
                             {profileLink}
-                            <Nav.Link href="../login" className="links logout" onClick={this.handleLogInOut}>{logInOutText}</Nav.Link>
+                            {logInOutLink}
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
