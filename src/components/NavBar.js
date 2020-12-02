@@ -38,7 +38,7 @@ class NavBar extends Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-right" className="linksWrapper">
                             <Nav.Link href="../" className="links">Now in cinema</Nav.Link>
-                            <Nav.Link href="#link" className="links">Schedule</Nav.Link>
+                            <Nav.Link href="../movies-schedule" className="links">Schedule</Nav.Link>
                             {profileLink}
                             {logInOutLink}
                         </Nav>

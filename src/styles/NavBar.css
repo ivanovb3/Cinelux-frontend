@@ -32,5 +32,6 @@ nav .nav-link {
     position: absolute;
 }
 .footerContainer{
+    margin-top: 5%;
     clear: both ;
 }

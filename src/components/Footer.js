@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-/*  import '../styles/Footer.css'  */
+
 
 export default class Footer extends Component {
     render() {
         return (
             <div className="footerContainer">
 
-                <footer class="page-footer font-small elegant-color-dark darken-3">
+                <footer style={{backgroundImage: `url(${process.env.PUBLIC_URL} /pictures/citylights.jpg)`, backgroundSize:'100%'}} class="page-footer font-small elegant-color-dark darken-3" >
 
 
                     <div class="container">

@@ -3,6 +3,7 @@ import LogIn from '../components/LogIn'
 import NavBar from '../components/NavBar'
 import Register from '../components/Register'
 import Footer from '../components/Footer'
+import Helmet from '../components/Helmet'
 
 export default class LogInPage extends Component {
     constructor() {
@@ -16,7 +17,8 @@ export default class LogInPage extends Component {
             <div>
                 <NavBar />
                 {this.props.location.pathname == "/login" ? <LogIn /> : <Register />}  
-                <Footer />               
+                <Footer /> 
+                <Helmet />              
             </div>
         )
     }

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-ro
 import MainPage from './pages';
 import LogInPage from './pages/logIn';
 import MoviePage from './pages/movie';
+import SchedulePage from './pages/schedule';
 
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
     return (
       <Router>
         <Switch>
+          <Route path="/movies-schedule" component={SchedulePage} />
           <Route path="/film/:name" component={MoviePage} />
           <Route exact path="/login" component={LogInPage} />
           <Route exact path="/register" component={LogInPage} />

@@ -39,11 +39,11 @@ let movieListArray = [[{ name: "" }]];
                             pathname: 'film/' + d.name,
                             state: {
                                 movie: d
-                            }
+                            }                            
                         }}
                             >
                             <div className="movieWrapperContent">
-                                <img src={process.env.PUBLIC_URL + '/movies/default.jpg'} className="imageNow" />
+                                <img src={`data:image/png;base64,${d.picture}`} className="imageNow" />
                                 <p className="movieName">{d.name}</p>
                             </div>
                     </Link>

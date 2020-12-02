@@ -43,6 +43,7 @@ ul {
 }
 .projections{
     color:white;
+    margin-top: 5%
 }
 .active{
     font-family: Stencil Std, fantasy;
@@ -63,4 +64,37 @@ ul {
     border-style: none ;
     width: 100%;
     height: 100%; 
+}
+
+.btn-outline-flat{
+    /* background-color: #f7941e !important; */
+    color: #f7941e !important;
+    border-color: #f7941e !important;
+    font-size: 1.6rem !important;
+}
+.btn-flat :hover{
+    background-color: white;
+}
+.instruction{
+    font-family: Stencil Std, fantasy;
+    font-weight: 200;
+    font-size: 1.3rem;
+    color: #f7941e;
+    margin-bottom: 2%;
+    margin-top: 2%
+}
+.projectionWrapper{
+    display: flex;
+}
+.react-numeric-input input {
+    color:  #f7941e;
+    background-color:  white;
+}
+.react-numeric-input{
+    margin-top: 4%;
+}
+.seatsToChoose{
+    margin-top: 2%;
+    margin-left: 5%;
+    width: 50%;
 }

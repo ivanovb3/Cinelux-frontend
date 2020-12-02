@@ -16,6 +16,7 @@ export default class NewMovie extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleFileChange = this.handleFileChange.bind(this)
     }
 
     handleChange(event) {
@@ -33,6 +34,21 @@ export default class NewMovie extends Component {
         }
         console.log(this.state.name +" "+ this.state.image)
         MovieService.addMovie(movie) 
+    }
+    handleFileChange(event){
+        let file = event.target.files[0]
+
+        if(file){
+            const reader = new FileReader();
+
+            reader.onload = this._handleReaderLoaded.bind(this);
+            reader.readAsBinaryString(file)
+        }
+
+    }
+    _handleReaderLoaded = (readerEvt) => {
+        let binaryString = readerEvt.target.result
+        this.setState({image: btoa(binaryString)})
     }
 
     render() {
@@ -55,6 +71,7 @@ export default class NewMovie extends Component {
                                 name="runtime"
                                 value={this.state.runtime}
                                 placeholder="Movie runtime(in minutes)"
+                                accept=".jpeg, .png, .jpg"
                                 onChange={this.handleChange} />
                         </Col>
                     </Form.Row>
@@ -62,7 +79,7 @@ export default class NewMovie extends Component {
                         name="image"
                         id="moviePic"
                         label="Choose image"
-                        onChange={this.handleChange}
+                        onChange={this.handleFileChange}
                         custom
                     />
                     <Button variant="primary" type="submit">

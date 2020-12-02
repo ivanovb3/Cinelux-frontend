@@ -22,6 +22,7 @@
 .imageNow{
     border-radius: 8px;
     width: 100%;
+    height: 390px;    
 }
 .image :hover{
     color: #f7941e !important;

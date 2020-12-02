@@ -9,6 +9,7 @@ import Footer from '../components/Footer'
 import Carousel from '../components/Carousel'
 import Helmet from '../components/Helmet'
 
+import AuthService from "../services/auth.service";
 
 
 class MainPage extends Component {
@@ -16,6 +17,13 @@ class MainPage extends Component {
         super(props)
         this.state = {
             isAdmin: false
+        }
+    }
+    componentDidMount(){
+        if(AuthService.getCurrentUser() != null){
+            if(AuthService.getCurrentUser().roles.includes("ROLE_ADMIN")){
+                this.setState({isAdmin: true})
+            }
         }
     }
     render() {
