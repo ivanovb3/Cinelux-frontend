@@ -79,7 +79,7 @@ export default class SchedulePage extends Component {
                         <div className="scheduleMovie">
                             <Movie movie={moviesThatDay[index]} />
                             <div className="scheduleProjections">
-                                <Projections projectionsInSelectedDate={this.getMovieProjections(moviesThatDay[index].name)} />
+                                <Projections projectionsInSelectedDate={this.getMovieProjections(moviesThatDay[index].name)} movie={moviesThatDay[index]} />
                             </div>
                             {/* <Card  border="warning"  style={{ width: '100%', backgroundColor: '#191a1f', borderColor:'#f7941e' }}>
                             <Card.Header>{moviesThatDay[index].name}</Card.Header>

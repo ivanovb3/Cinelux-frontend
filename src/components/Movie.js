@@ -31,9 +31,12 @@ class Movie extends Component {
             })
     } */
 
-
-
+    getStart(){
+        return this.props.projection.time.substring(0,5)
+    }
     render() {
+        /* screenTime = screenTime.substring(0, 5) */
+        /* let endTime = this.props.projection.time.getTime() */
         return (
             <div>
 
@@ -43,6 +46,7 @@ class Movie extends Component {
                         <Card.Title>{this.props.movie.name}</Card.Title>
                         <Card.Text>
                             Runtime: {this.props.movie.runtime} minutes
+                            {this.props.projection != undefined ? <div>Projection time:  {this.props.projection.time}</div> : null}
                             </Card.Text>
                     </Card.Body>
                 </Card>

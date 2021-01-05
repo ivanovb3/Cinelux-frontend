@@ -1,3 +1,12 @@
-.wrapper{
-    justify-content: left !important;
+.wrapperAddMovie{
+    justify-content: center;
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 5%;
+    border-radius: 25px;
+    padding: 20px;
+    border: 3px solid #f7941e;
+}
+.newMovie{
+    
 }

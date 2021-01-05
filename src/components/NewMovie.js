@@ -34,6 +34,7 @@ export default class NewMovie extends Component {
         }
         console.log(this.state.name +" "+ this.state.image)
         MovieService.addMovie(movie) 
+        window.location.reload()
     }
     handleFileChange(event){
         let file = event.target.files[0]
@@ -54,8 +55,11 @@ export default class NewMovie extends Component {
     render() {
         if(this.props.isAdmin){
         return (
-            <div className="wrapper">
+            <div className="wrapperAddMovie">
+                <div className="instruction" style={{textAlign: 'center'}}>Add a new movie</div>
+                <ColoredLine color='white' />
                 <Form onSubmit={this.handleSubmit}>
+                    <div className="newMovie">
                     <Form.Row>
                         <Col xs={7}>
                             <Form.Control
@@ -85,6 +89,7 @@ export default class NewMovie extends Component {
                     <Button variant="primary" type="submit">
                         Add movie
                     </Button>
+                    </div>
                 </Form>
             </div>
         )}
@@ -93,3 +98,13 @@ export default class NewMovie extends Component {
         }
     }
 }
+const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+            color: color,
+            backgroundColor: color,
+            width: '90%',
+            marginLeft: '5%',
+        }}
+    />
+);

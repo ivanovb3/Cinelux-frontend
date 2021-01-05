@@ -16,6 +16,7 @@ let movieListArray = [[{ name: "" }]];
             moviesList: [{ name: "" }]
         }
 
+        this.deleteMovie = this.deleteMovie.bind(this)
 
     }
 
@@ -28,6 +29,12 @@ let movieListArray = [[{ name: "" }]];
             console.log(this.state.moviesList)
            // console.log(this.state.moviesList[0].name)
         })
+    }
+
+    deleteMovie(e){
+        const btnValue = e.currentTarget.value;
+        MovieService.deleteMovie(btnValue); 
+        window.location.reload()        
     }
 
     render() {
@@ -45,8 +52,11 @@ let movieListArray = [[{ name: "" }]];
                             <div className="movieWrapperContent">
                                 <img src={`data:image/png;base64,${d.picture}`} className="imageNow" />
                                 <p className="movieName">{d.name}</p>
-                            </div>
+                            </div>                            
                     </Link>
+                    <button onClick={this.deleteMovie} value={d.id} style={{ marginRight: '2%', border: 'none', width: '6%', backgroundColor: 'transparent', padding: '0', outline: 'none' }}>
+                    {this.props.isAdmin ? <i class="fas fa-trash-alt" style={{color:'red'}}></i> : null}
+                    </button>
                 </div>
 
             )

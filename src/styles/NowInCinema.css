@@ -22,9 +22,14 @@
 .imageNow{
     border-radius: 8px;
     width: 100%;
-    height: 390px;    
+    height: 390px;  
+    opacity: 1;  
+    transition: .7s ease;
 }
-.image :hover{
+.imageNow:hover{
+    opacity: 0.5; 
+}
+.image:hover{
     color: #f7941e !important;
 }
 .movieName{

@@ -6,6 +6,8 @@ import MainPage from './pages';
 import LogInPage from './pages/logIn';
 import MoviePage from './pages/movie';
 import SchedulePage from './pages/schedule';
+import TicketPurchasePage from './pages/ticketPurchase';
+import ProfilePage from './pages/profilePage';
 
 
 class App extends Component {
@@ -13,6 +15,8 @@ class App extends Component {
     return (
       <Router>
         <Switch>
+          <Route path="/tickets" component={ProfilePage} />
+          <Route path="/film/:name/purchase-ticket" component={TicketPurchasePage} />
           <Route path="/movies-schedule" component={SchedulePage} />
           <Route path="/film/:name" component={MoviePage} />
           <Route exact path="/login" component={LogInPage} />

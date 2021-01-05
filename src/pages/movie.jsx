@@ -47,7 +47,7 @@ class MoviePage extends Component {
                     {this.state.firstDate ? null : <h2 className="instruction">Please choose a desired date and time for a projection</h2>}
                     <Calendar handleChangeDay={this.handleChangeDay} />
                     <div className="projections">
-                        <Projections projectionsInSelectedDate={this.state.projectionsInSelectedDate} />
+                        <Projections projectionsInSelectedDate={this.state.projectionsInSelectedDate} movie={this.state.movie}/>
                     </div>
                 </div>
                 <Footer />

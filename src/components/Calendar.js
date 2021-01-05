@@ -31,7 +31,7 @@ export default class Calendar extends Component {
                         name={getCurrentDate(index)}
                         value={getCurrentDate(index)}
                         eventKey={getCurrentDay(index)}
-                        className="date"
+                        className="date" 
                         onClick={this.handleChangeDate}
                         /* className="inactive" activeClassName="active" exact={true} */
                         /* style={{color: 'white', textDecoration: 'none'}} activeStyle={{color: 'red', textDecoration: 'none'}} */>
@@ -58,6 +58,9 @@ const getCurrentDay = (index) => {
     if (day > 30) {
         day = day % 31 + 1
         month = month + 1
+        if(month > 12){
+            month = 1
+        }
     }
     let current = day + '/' + month
     return current;
@@ -68,9 +71,13 @@ const getCurrentDate = (index) => {
     let month = date.getMonth() + 1
     if (day > 30) {
         day = day % 31 + 1
-        month = month + 1
+        month = month + 1        
     }
     let year = date.getFullYear();
+    if(month > 12){
+        month = 1
+        year++
+    }
     let current = year + '-' + month + '-' + day;
     return current;
 }

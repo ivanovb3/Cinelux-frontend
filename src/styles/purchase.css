@@ -1,0 +1,26 @@
+.seatsChoice{
+    justify-content: center;
+    width: 100%;
+}
+.rightContainerPurchase{
+    margin-top: 10%;
+    float:right;
+    width: 50%;
+    margin-right: 5%;
+}
+.available{
+    color:white;
+}
+.cinemaOutlook{
+    border-radius: 2px;
+    border-color: white;
+    border-style: solid;
+}
+.legend{
+    display: flex;
+    color:white;
+    margin-left: 13%;
+}
+.fas .fa-couch :hover{
+    color:black;
+}

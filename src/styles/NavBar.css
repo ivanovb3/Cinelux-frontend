@@ -35,3 +35,16 @@ nav .nav-link {
     margin-top: 5%;
     clear: both ;
 }
+.secondNav{
+    background-color: #f7941e !important;
+    justify-content: center !important;
+    font-family: Stencil Std, fantasy;;
+    font-stretch: ultra-expanded;
+    font-weight: 150;
+    font-size: 1.1rem !important;
+}
+.secondNavLink{
+    color:black !important;
+    border-left:0.7px solid#363535 !important;
+    padding: 11 !important;
+}

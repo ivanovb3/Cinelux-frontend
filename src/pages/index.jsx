@@ -32,7 +32,7 @@ class MainPage extends Component {
                 <NavBar isLoggedIn = {this.state.isLoggedIn}/> 
                 <Carousel />
                 <NewMovie isAdmin = {this.state.isAdmin}/>   
-                <NowInCinema /> 
+                <NowInCinema isAdmin = {this.state.isAdmin}/> 
                 <Footer />  
                 <Helmet />                         
             </div>

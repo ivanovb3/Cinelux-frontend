@@ -28,13 +28,13 @@ export default class CarouselPictures extends Component {
                             <h3>Stay safe during the pandemic, always wear masks to protect others and yourself</h3>                            
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item interval={3000}>
+                    {/* <Carousel.Item interval={3000}>
                         <img
                             className="d-block w-100 carouselImage"
                             src={process.env.PUBLIC_URL + '/pictures/vidin.jpg'}
                             alt="Third slide"
                         />
-                    </Carousel.Item>
+                    </Carousel.Item> */}
                 </Carousel>
             </div>
         )

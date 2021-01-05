@@ -20,7 +20,7 @@
 .rightContainer{
     float: right;
     margin-top: 5%;
-    margin-right: 10%;
+    margin-right: 8%; 
     margin-bottom: 5%;
 }
 .date{
@@ -32,6 +32,9 @@
     border-style: none ;
     width: 100%;
     height: 100%; 
+}
+.date .navr-link:hover{
+    color:white !important;
 }
 .dateContainer{
     border-style: ridge;

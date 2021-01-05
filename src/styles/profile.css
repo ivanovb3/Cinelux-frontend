@@ -1,0 +1,17 @@
+.userTicket{
+    margin: 2%;
+    width: 20%;
+}
+.qrCode{
+    vertical-align: middle;
+    border-style: none;
+    flex-shrink: 0;
+    width: 100%;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+}
+.ticketsWrapper{
+    display: flex;
+    justify-content: center;           
+     flex-wrap: wrap; 
+}
