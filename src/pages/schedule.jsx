@@ -3,13 +3,14 @@ import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
 import Calendar from '../components/Calendar'
 import Projections from '../components/Projections'
+import NewProjection from '../components/NewProjection'
+import Helmet from '../components/Helmet'
 
 import '../styles/Schedule.css'
 
 import ProjectionService from '../services/ProjectionService'
 import Movie from '../components/Movie'
-
-import Card from 'react-bootstrap/Card'
+import AuthService from "../services/auth.service";
 
 export default class SchedulePage extends Component {
     constructor() {
@@ -17,20 +18,26 @@ export default class SchedulePage extends Component {
         this.state = {
             movie: {},
             projectionsInSelectedDate: [],
-            firstDate: false
+            firstDate: false,
+            isAdmin: false
         }
         this.handleChangeDay = this.handleChangeDay.bind(this);
         this.getMovieProjections = this.getMovieProjections.bind(this)
     }
+    componentDidMount(){
+        if(AuthService.getCurrentUser() != null){
+            if(AuthService.getCurrentUser().roles.includes("ROLE_ADMIN")){
+                this.setState({isAdmin: true})
+            }
+        }
+    }
 
     handleChangeDay(event) {
-        console.log(event)
         const { value } = event
 
         ProjectionService.getProjectionsByDate(event)
             .then((response) => {
                 this.setState({ projectionsInSelectedDate: response.data })
-                console.log(response.data)
             })
         if (!this.state.firstDate) {
             this.setState({ firstDate: true })
@@ -66,7 +73,6 @@ export default class SchedulePage extends Component {
             }
         }
         moviesThatDay.shift();
-        console.log(moviesThatDay)
         //=================================================================================================
 
 
@@ -80,18 +86,7 @@ export default class SchedulePage extends Component {
                             <Movie movie={moviesThatDay[index]} />
                             <div className="scheduleProjections">
                                 <Projections projectionsInSelectedDate={this.getMovieProjections(moviesThatDay[index].name)} movie={moviesThatDay[index]} />
-                            </div>
-                            {/* <Card  border="warning"  style={{ width: '100%', backgroundColor: '#191a1f', borderColor:'#f7941e' }}>
-                            <Card.Header>{moviesThatDay[index].name}</Card.Header>
-                            <Card.Body>
-                                <Card.Text style={{display:'flex'}}>
-                                    <Movie movie={moviesThatDay[index]} />
-                                    <div className="scheduleProjections">
-                                        <Projections projectionsInSelectedDate={this.getMovieProjections(moviesThatDay[index].name)} />
-                                    </div>
-                                </Card.Text>
-                            </Card.Body>
-                        </Card> */}
+                            </div>                        
                         </div>
                         <ColoredLine color='white' />
                     </div>
@@ -110,12 +105,14 @@ export default class SchedulePage extends Component {
         return (
             <div>
                 <NavBar />
+                <NewProjection isAdmin = {this.state.isAdmin} />
                 <div className="scheduleCalendar">
                     <Calendar handleChangeDay={this.handleChangeDay} />
                 </div>
                 {schedule}
                 {this.state.projectionsInSelectedDate.length == 0 ? <div><br /><br /><br /><br /></div> : null }
                 <Footer />
+                <Helmet />
             </div>
         )
     }

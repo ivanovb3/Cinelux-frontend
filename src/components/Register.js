@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-//import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import '../styles/LogIn.css'
-import Axios from 'axios'
-import UserService from '../services/UserService';
 import { Link } from 'react-router-dom'
 
 import Form from "react-validation/build/form";
@@ -125,47 +122,7 @@ export default class Register extends Component {
                     onChange={this.handleChange}
                     validations={[required]}
                   />
-                </div>
-                  
-                    {/* <Form.Group controlId="formBasicText">
-                        <Form.Label>Name and Surname</Form.Label>
-                        <Form.Control
-                            name="name"
-                            value={this.state.name}
-                            type="text"
-                            placeholder="Enter name"
-                            onChange={this.handleChange} />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
-                            name="email"
-                            value={this.state.email}
-                            type="email"
-                            placeholder="Enter email"
-                            onChange={this.handleChange} />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            name="password"
-                            value={this.state.password}
-                            type="password"
-                            placeholder="Password"
-                            onChange={this.handleChange} />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control
-                            name="confirmPassword"
-                            value={this.state.confirmPassword}
-                            type="password"
-                            placeholder="Confirm Password"
-                            onChange={this.handleChange} />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group> */}
+                </div>                  
                     <Button variant="primary" type="submit">
                         Sign up
                     </Button>

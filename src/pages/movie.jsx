@@ -24,7 +24,6 @@ class MoviePage extends Component {
 
     handleChangeDay(event) {
         console.log(event)
-        const { value } = event
 
         ProjectionService.getProjectionsByDateAndMovie(event, this.state.movie)
             .then((response) => {

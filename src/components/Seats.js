@@ -44,7 +44,6 @@ export default class Seats extends Component {
     handleReserveSeat(e) {
         const btnValue = e.currentTarget.value
         console.log(btnValue)
-        let amount;
         let chosenSeatsByUser = this.state.chosenSeatsByUser
         if (!chosenSeatsByUser.includes(btnValue)) {
             if (this.state.chosenSeatsByUser.length < this.state.seatsAmountToBuy) {
@@ -209,7 +208,7 @@ export default class Seats extends Component {
                         disabled
                     >Confirm</Button>} </div> {/* : <div><h3 className="instruction">Purchase was successfull. You can see your bought tickets on the Tickets page</h3></div> } */}
 
-                    {this.state.ticketsAdded ? <h3 className="instruction">Purchase was successfull. You can see your bought tickets in your profile</h3> : null} 
+                    {this.state.ticketsAdded ? <h3 className="instruction">Purchase was successfull. You can see your bought tickets on the tickets page</h3> : null} 
                 
             </div> 
         )

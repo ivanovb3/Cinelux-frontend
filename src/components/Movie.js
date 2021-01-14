@@ -1,42 +1,14 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import ProjectionService from '../services/ProjectionService'
 import '../styles/movie.css'
 import Card from 'react-bootstrap/Card'
-import Calendar from '../components/Calendar'
-import Projections from '../components/Projections'
 
 class Movie extends Component {
-
-    /* constructor(props) {
-        super(props)
-        this.state = {
-            movie: {},
-             projectionsInSelectedDate: [] 
-        }
-         this.handleChangeDay = this.handleChangeDay.bind(this); 
-    } */
-
-    /* componentDidMount() {
-        this.setState({ movie: this.props.location.state.movie })
-    } */
-    /* handleChangeDay(event) {
-        console.log(event)
-        const { value } = event
-
-        ProjectionService.getProjectionsByDateAndMovie(event, this.state.movie)
-            .then((response) => {
-                this.setState({ projectionsInSelectedDate: response.data })
-                console.log(this.state.projectionsInSelectedDate);
-            })
-    } */
 
     getStart(){
         return this.props.projection.time.substring(0,5)
     }
     render() {
-        /* screenTime = screenTime.substring(0, 5) */
-        /* let endTime = this.props.projection.time.getTime() */
         return (
             <div>
 
@@ -50,18 +22,6 @@ class Movie extends Component {
                             </Card.Text>
                     </Card.Body>
                 </Card>
-
-
-
-
-
-                {/* <div className="rightContainer">
-                    <Calendar handleChangeDay={this.handleChangeDay} />
-                    <div className="projections">
-                        <Projections projectionsInSelectedDate={this.state.projectionsInSelectedDate} />
-                    </div>
-                </div> */}
-
             </div>
         )
     }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import NavBar from './components/NavBar';
 
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import MainPage from './pages';
 import LogInPage from './pages/logIn';
 import MoviePage from './pages/movie';

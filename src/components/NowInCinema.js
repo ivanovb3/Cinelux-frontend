@@ -5,9 +5,6 @@ import '../styles/NowInCinema.css'
 import { Link, withRouter } from 'react-router-dom'
 
 
-
-let movieListArray = [[{ name: "" }]];
-
  class NowInCinema extends Component {
 
     constructor() {
