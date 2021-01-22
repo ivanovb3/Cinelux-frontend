@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { FixedSizeGrid as Grid } from 'react-window';
 import MovieService from '../services/MovieService';
 import '../styles/NowInCinema.css'
 import { Link, withRouter } from 'react-router-dom'

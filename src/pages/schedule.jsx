@@ -33,8 +33,6 @@ export default class SchedulePage extends Component {
     }
 
     handleChangeDay(event) {
-        const { value } = event
-
         ProjectionService.getProjectionsByDate(event)
             .then((response) => {
                 this.setState({ projectionsInSelectedDate: response.data })
